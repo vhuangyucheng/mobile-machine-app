@@ -2,6 +2,7 @@ package com.solar4america.controller;
 
 import com.solar4america.QO.GetTicketListQO;
 import com.solar4america.QO.MachineQO;
+import com.solar4america.VO.ListWrapper;
 import com.solar4america.VO.MachineVO;
 import com.solar4america.api.IMachine;
 import com.solar4america.entity.TicketDO;
@@ -19,8 +20,11 @@ public class MachineController {
     IMachine machineApi;
 //0全部，1坏的
     @PostMapping("/listMachine")
-    public List<MachineVO> listMachine(@RequestBody MachineQO machineQO) {
-        return machineApi.listMachine(machineQO.getStatus());
+    public ListWrapper<MachineVO> listMachine(@RequestBody MachineQO machineQO) {
+        ListWrapper<MachineVO> machineVOListWrapper = new ListWrapper<>();
+        machineVOListWrapper.setPageName("机器列表");
+        machineVOListWrapper.setList(machineApi.listMachine(machineQO.getStatus()));
+        return machineVOListWrapper;
     }
 
 //

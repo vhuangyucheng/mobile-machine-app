@@ -24,6 +24,7 @@ public class MachineService implements IMachine {
     @Autowired
     private TicketMapper ticketMapper;
 
+//     0全部，1坏的
     @Override
     public List<MachineVO> listMachine(Integer status) {
         List<MachineDO> machineDOList = machineMapper.selectList(null);
