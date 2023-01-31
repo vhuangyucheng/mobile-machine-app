@@ -16,10 +16,10 @@ public class TicketDO {
     private int machineId;
     private String ticketType;
     private String ticketDescription;
-    private Date TicketIssueTime;
-    private byte[] ticketImg;
+    private Date ticketIssueTime;
+    private String ticketImg;
     private String ticketSolution;
-    private Date TicketCloseTime;
+    private Date ticketCloseTime;
 
-    private Integer TicketStatus;
+    private Integer ticketStatus;
 }

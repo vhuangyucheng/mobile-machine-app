@@ -16,13 +16,8 @@ public class TicketController {
     ITicket ITicket;
 
     @PostMapping("/insertTicket")
-    public String insertTicket(TicketDO ticketDO, @RequestParam("file") MultipartFile file) {
-        try {
-            byte[] photo = file.getBytes();
-            ticketDO.setTicketImg(photo);
-        } catch (Exception e) {
-            System.out.println("photo error");
-        }
+//    public String insertTicket(TicketDO ticketDO, @RequestParam("file") MultipartFile file) {
+    public String insertTicket(@RequestBody TicketDO ticketDO) {
         ITicket.addTicket(ticketDO);
         return "ok";
     }

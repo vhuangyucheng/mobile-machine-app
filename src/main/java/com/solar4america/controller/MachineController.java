@@ -27,10 +27,13 @@ public class MachineController {
         return machineVOListWrapper;
     }
 
-//
+//0全部，1未关闭，2关闭
     @PostMapping("/listTicket")
-    public List<TicketDO> listTicket(@RequestBody GetTicketListQO getTicketListQO) {
-        return machineApi.listTicket(getTicketListQO.getStatus(), getTicketListQO.getMachineId());
+    public ListWrapper<TicketDO> listTicket(@RequestBody GetTicketListQO getTicketListQO) {
+        ListWrapper<TicketDO> TicketDOListWrapper = new ListWrapper<>();
+        TicketDOListWrapper.setPageName("工单列表");
+        TicketDOListWrapper.setList(machineApi.listTicket(getTicketListQO.getStatus(), getTicketListQO.getMachineId()));
+        return TicketDOListWrapper;
     }
 
     @PostMapping("/test")
