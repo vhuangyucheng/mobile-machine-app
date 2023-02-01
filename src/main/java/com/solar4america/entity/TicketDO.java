@@ -17,6 +17,7 @@ public class TicketDO {
     private String ticketType;
     private String ticketDescription;
     private Date ticketIssueTime;
+    @TableField("ticket_img")
     private String ticketImg;
     private String ticketSolution;
     private Date ticketCloseTime;

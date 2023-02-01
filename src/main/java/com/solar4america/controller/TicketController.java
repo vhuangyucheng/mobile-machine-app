@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+
 
 @Slf4j
 @RestController
@@ -16,8 +19,20 @@ public class TicketController {
     ITicket ITicket;
 
     @PostMapping("/insertTicket")
-//    public String insertTicket(TicketDO ticketDO, @RequestParam("file") MultipartFile file) {
-    public String insertTicket(@RequestBody TicketDO ticketDO) {
+    public String insertTicket(TicketDO ticketDO, @RequestParam("file") MultipartFile file) {
+//    public String insertTicket(@RequestBody TicketDO ticketDO) {
+
+        // 获取文件名
+        String fileName = file.getOriginalFilename();
+        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+        File dest = new File(filePath + fileName);
+        try {
+            file.transferTo(dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.error("文件上传失败");
+        }
+        ticketDO.setTicketImg(fileName);
         ITicket.addTicket(ticketDO);
         return "ok";
     }
