@@ -11,9 +11,9 @@ import java.util.Date;
 @TableName("ticket")
 public class TicketDO {
     @TableId("ticket_id")
-    private int ticketId;
+    private Integer ticketId;
     @TableField("machine_id")
-    private int machineId;
+    private Integer machineId;
     private String ticketType;
     private String ticketDescription;
     private Date ticketIssueTime;
@@ -21,6 +21,6 @@ public class TicketDO {
     private String ticketImg;
     private String ticketSolution;
     private Date ticketCloseTime;
-
+//0为关闭，1关闭
     private Integer ticketStatus;
 }
