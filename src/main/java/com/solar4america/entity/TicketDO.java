@@ -19,8 +19,10 @@ public class TicketDO {
     private Date ticketIssueTime;
     @TableField("ticket_img")
     private String ticketImg;
+    @TableField("ticket_img2")
+    private String ticketImg2;
     private String ticketSolution;
     private Date ticketCloseTime;
-//0为关闭，1关闭
+//0未关闭，1关闭
     private Integer ticketStatus;
 }

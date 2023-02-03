@@ -37,9 +37,27 @@ public class TicketController {
         return "ok";
     }
 
-
     @PostMapping("/updateTicket")
-    public String updateTicket(@RequestBody TicketDO ticketDO) {
+    public TicketDO updateTicket(TicketDO ticketDO, @RequestParam("file") MultipartFile file) {
+//    public String insertTicket(@RequestBody TicketDO ticketDO) {
+
+        // 获取文件名
+        String fileName = file.getOriginalFilename();
+        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+        File dest = new File(filePath + fileName);
+        try {
+            file.transferTo(dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.error("文件上传失败");
+        }
+        ticketDO.setTicketImg2(fileName);
+        ITicket.removeTicket(ticketDO);
+        return ITicket.getTicket(ticketDO);
+    }
+
+    @PostMapping("/reopenTicket")
+    public String reopenTicket(@RequestBody TicketDO ticketDO) {
         ITicket.removeTicket(ticketDO);
         return "ok";
     }
