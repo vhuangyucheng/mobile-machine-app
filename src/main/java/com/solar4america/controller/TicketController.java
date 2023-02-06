@@ -24,7 +24,9 @@ public class TicketController {
 
         // 获取文件名
         String fileName = file.getOriginalFilename();
-        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+//        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+        String filePath = "D:\\webstormworkspace\\vue-test-app\\public\\";
+
         File dest = new File(filePath + fileName);
         try {
             file.transferTo(dest);
@@ -43,7 +45,8 @@ public class TicketController {
 
         // 获取文件名
         String fileName = file.getOriginalFilename();
-        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+//        String filePath = "C:\\Users\\jhuang\\WebstormProjects\\vue-test-app1\\vue-test-app\\public\\";
+        String filePath = "D:\\webstormworkspace\\vue-test-app\\public\\";
         File dest = new File(filePath + fileName);
         try {
             file.transferTo(dest);
