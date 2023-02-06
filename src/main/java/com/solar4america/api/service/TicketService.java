@@ -15,8 +15,8 @@ import java.util.List;
 @Slf4j
 @Service
 public class TicketService implements ITicket {
-    public static final String ACCOUNT_SID = "ACc5798627c5fe7e575726a5df887aa697";
-    public static final String AUTH_TOKEN = "bbd123f88f145950818c5dc247f91514";
+    public static final String ACCOUNT_SID = "1";
+    public static final String AUTH_TOKEN = "2";
 
     @Autowired
     private TicketMapper ticketMapper;
